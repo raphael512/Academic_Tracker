@@ -34,7 +34,7 @@ public class activity_task_list extends AppCompatActivity {
             params.leftMargin = 50;
             checkBox[x] = new CheckBox(this);
             checkBox[x].setText(list.get(x));
-            checkBox[x].setTextSize((float) 20);
+            checkBox[x].setTextSize((float) 18);
             checkBox[x].setLayoutParams(params);
             checkBox[x].setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -45,6 +45,5 @@ public class activity_task_list extends AppCompatActivity {
 
             lnrLayout.addView(checkBox[x]);
         }
-        //Toast.makeText(activity_task_list.this, list.toString(), Toast.LENGTH_SHORT);
     }
 }

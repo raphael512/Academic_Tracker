@@ -8,4 +8,14 @@
     android:background="#FFFFCC"
     android:orientation="vertical"
     android:scrollbarAlwaysDrawVerticalTrack="true"
-    tools:context=".activity_task_list"/>
+    tools:context=".activity_task_list">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:text="@string/taskList_text"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+</LinearLayout>
