@@ -15,10 +15,19 @@ public class MainActivity extends AppCompatActivity {
 
         Button addTask = (Button) findViewById(R.id.addButton);
 
+        Button viewButton = (Button) findViewById(R.id.viewButton);
+
         addTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, addTaskActivity.class));
+            }
+        });
+
+        viewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, activity_task_list.class));
             }
         });
     }

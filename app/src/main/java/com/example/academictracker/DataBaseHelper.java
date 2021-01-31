@@ -2,9 +2,13 @@ package com.example.academictracker;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -18,7 +22,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTableStatement = "CREATE TABLE "+ taskTable + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TASK_TITLE + " TEXT)";
+        String createTableStatement = "CREATE TABLE " + taskTable + "(" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TASK_TITLE + " TEXT)";
 
         db.execSQL(createTableStatement);
     }
@@ -28,7 +32,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean addEntry(TaskModel taskModel){
+    public boolean addEntry(TaskModel taskModel) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -36,9 +40,29 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         long insert = db.insert("taskTable", null, cv);
 
-        if(insert == -1){
+        if (insert == -1) {
             return false;
+        } else return true;
+    }
+
+    public List<String> getList() {
+        List<String> getList = new ArrayList();
+
+        String query = "SELECT * FROM taskTable";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String taskTitle = cursor.getString(1);
+                getList.add(taskTitle);
+            } while (cursor.moveToNext());
         }
-        else return true;
+
+        cursor.close();
+        db.close();
+        return getList;
     }
 }
