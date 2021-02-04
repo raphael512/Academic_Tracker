@@ -35,18 +35,13 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder>{
     }
 
 
-    /**
-     *
-     * Lagay mo nga yung checkbox galing checkbox xml di ko magawa ehe..
-     *
-     */
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         CheckBox checkBox_venti;
 
         public ViewHolder(@NonNull View view) {
             super(view);
-            checkBox_venti = view.findViewById();
+            checkBox_venti = (CheckBox) view.findViewById(R.id.checkBox_checkBox);
 
         }
     }
