@@ -26,7 +26,7 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder>{
         this.activity = activity;
     }
 
-
+//123
     @NonNull
     @Override
     public ToDoAdapter.ViewHolder onCreateViewHolder( ViewGroup viewGroup, int i) {
